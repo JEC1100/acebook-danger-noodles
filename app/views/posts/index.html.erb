@@ -1,4 +1,6 @@
 <% @posts.reverse_each do |post| %>
+
+<%= post.user.username %>
   <% if post.image.attached? %>
   <img src="<%=(url_for(post.image))%>"
      width="400" 

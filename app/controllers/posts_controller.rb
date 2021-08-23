@@ -1,11 +1,21 @@
 class PostsController < ApplicationController
-  def new
-    @post = Post.new
-  end
 
+  before_action :authenticate_user!
+
+  def new
+    @post = current_user.posts.build
+  end
+  
   def create
-    @post = Post.create(post_params)
-    redirect_to posts_url
+    @post = current_user.posts.build(post_params)
+
+    if @post.save
+      flash[:success] = "Your post has been created!"
+      redirect_to posts_path
+    else
+      flash[:alert] = "Your new post couldn't be created!  Please check the form."
+      render :new
+    end
   end
 
   def index

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Timeline", type: :feature do
-  scenario "Can submit posts and view them" do
+RSpec.feature "User details", type: :feature do
+  scenario "User username appears above post" do
     visit "/users/sign_up"
     fill_in "user_username", with: "Bob"
     fill_in "user_email", with: "bob@example.com"
@@ -12,6 +12,6 @@ RSpec.feature "Timeline", type: :feature do
     click_link "New post"
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
-    expect(page).to have_content("Hello, world!")
+    expect(page).to have_content("Bob")
   end
 end
