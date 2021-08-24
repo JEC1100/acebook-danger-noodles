@@ -13,7 +13,11 @@
   <p class='post-content'><%= post.message %></p>
   <div class='likes'>Likes: <%= post.likes.count %></div>
   <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: post.id, class:'like-button'%>
-  <%= button_to 'New Comment', post_comments_path(post.id), method: :post, id: post.id, name: :comment %>
+  <%= button_to 'New Comment', post_comments_path(post.id), method: :post, id: post.id, name: :comment%>
+  <%= form_for :comment do |f| %>
+  <%= f.text_area :content %><br />
+  <%= f.submit %>
+<% end %>   
   </div>
 
 <% end %>
