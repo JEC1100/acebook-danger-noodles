@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    if post_params[:message] == "" && post_params[:image] == nil
+    if post_params[:message] == "" && post_params[:images] == nil
       redirect_to new_post_url, notice: 'Cannot create an empty post.'
     else
       @post = Post.create(post_params)
@@ -19,6 +19,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message, :image)
+    params.require(:post).permit(:message, images: [])
   end
 end

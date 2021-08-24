@@ -24,7 +24,7 @@ RSpec.describe PostsController, type: :controller do
     it 'attaches the uploaded file' do
       file = fixture_file_upload("#{Rails.root}/spec/files/attachment.jpeg" , 'image/png')
       expect {
-      post :create, params: { post: { image: file } }
+      post :create, params: { post: { images: [file] } }
       }.to change(ActiveStorage::Attachment, :count).by(1)
     end
   end
