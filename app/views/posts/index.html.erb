@@ -10,17 +10,21 @@
     <div class="user">
       <div class="avatar">
         <% if post.user.avatar.attached? %>
-          <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
+          <%= link_to user_path(post.user), class: 'user-avatar-link' do %> 
+            <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
+          <% end %>
         <% end %>
       </div>
       <div class="username">
-       <%= post.user.username %>
+        <%= link_to user_path(post.user) do %> 
+          <%= post.user.username %>
+        <% end %>
       </div>
     </div>
     <div class="post_message">
       <p class='post-content'><%= post.message %></p>
     </div>
-    <% post.images.each do |image| %>
+    <% post.images.each do|image| %>
     <img src="<%=(url_for(image))%>" class="post_image post-images"/>
     <% end %>
     <div class='likes'>Likes: <%= post.likes.count %></div>
