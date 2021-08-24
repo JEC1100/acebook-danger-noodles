@@ -19,7 +19,17 @@ RSpec.feature "Timeline", type: :feature do
     visit "/posts"
     click_link "New post"
     fill_in "post[message]", with: "Hello, world!"
-    attach_file("post[image]", './spec/files/attachment.jpeg')
+    attach_file("post[images][]", './spec/files/attachment.jpeg')
+    click_button "Submit"
+    expect(page).to have_content("Hello, world!")
+    expect(page).to have_css("img[src*='attachment.jpeg']")
+  end
+
+  scenario "Can submit posts and with multiple images" do
+    visit "/posts"
+    click_link "New post"
+    fill_in "post[message]", with: "Hello, world!"
+    attach_file("post[images][]", ['./spec/files/attachment.jpeg', './spec/files/marmite.jpeg'])
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
     expect(page).to have_css("img[src*='attachment.jpeg']")

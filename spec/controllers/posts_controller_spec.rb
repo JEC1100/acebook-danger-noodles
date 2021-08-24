@@ -32,7 +32,7 @@ RSpec.describe PostsController, type: :controller do
       sign_in user
       file = fixture_file_upload("#{Rails.root}/spec/files/attachment.jpeg" , 'image/png')
       expect {
-      post :create, params: { post: { image: file } }
+      post :create, params: { post: { images: [file] } }
       }.to change(ActiveStorage::Attachment, :count).by(1)
     end
   end
