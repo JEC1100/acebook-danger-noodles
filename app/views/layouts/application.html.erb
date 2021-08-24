@@ -4,34 +4,47 @@
     <title><%= content_for?(:title) ? yield(:title) : "Acebook" %></title>
      <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Acebook Social Media Site" %>">
     <%= csrf_meta_tags %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
    <div class="navbar">
       <ul class="nav-list">
-        <li class="nav-item"> 
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
+        <a href="<%= root_path %>">
+        <%= image_tag("logo.png") %>
+        </a>
+        <% if user_signed_in?%>
+
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %>
         </li>
+
+         <li class="nav-item">
+          <%= link_to "Posts", posts_path, class: "nav-link" %>
+        </li>
+
+
+        <li class="nav-item">
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+
+        <% else %>
+
         <li class="nav-item">
           <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
         </li>
+
         <li class="nav-item">
           <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-        <li class="nav-item">
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Settings</a>
         </li>
+
+        <% end %>
       </ul>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+   <%= render 'layouts/alerts' if notice %>
     <%= yield %>
   </body>
 </html>

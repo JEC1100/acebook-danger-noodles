@@ -7,6 +7,10 @@ class PostsController < ApplicationController
   end
   
   def create
+    if post_params[:message] == "" && post_params[:image] == nil
+      redirect_to new_post_url, notice: 'Cannot create an empty post.'
+    end
+    
     @post = current_user.posts.build(post_params)
 
     if @post.save
