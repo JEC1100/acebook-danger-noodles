@@ -53,3 +53,32 @@
     }
   }
 }
+
+
+.form-edit-user{
+  padding: 30px 100px 10px 50px;
+.form-group, input{
+    font-size: 14px;
+    color: black;
+  }
+  input, textarea{
+    border: 1px solid #efefef;
+  }
+  .col-form-label{
+    text-align: right;
+    font-weight: 600;
+  }
+.avatar{
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+  }
+  .username{
+    font-size: 30px;
+    line-height: 22px;
+    margin-bottom: 0;
+  }
+  input[type='submit']{
+    color: white;
+  }
+}
