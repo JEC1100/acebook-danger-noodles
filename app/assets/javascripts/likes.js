@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(text => {
         const parser = new DOMParser();
         const htmlDocument = parser.parseFromString(text, "text/html");
-        console.log(htmlDocument.body.div)
-        const updatedLike = htmlDocument.documentElement.querySelector(`ID${post.id}`).innerHTML;
+        updatedLike = htmlDocument.getElementById(`like-num${post.id}`).innerHTML
         post.querySelector('.likes').innerHTML = updatedLike;
       })
       });
