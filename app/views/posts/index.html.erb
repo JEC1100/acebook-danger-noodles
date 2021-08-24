@@ -1,16 +1,28 @@
-<div id="post">
+<div class="posts">
+
+  <div id="new_post_button">
+    <%= link_to new_post_path do %>
+      New post
+    <% end %>
+  </div>
+
   <% @posts.reverse_each do |post| %>
-    <div id="post_username">
-      <%= post.user.username %>
+  <section class="post">
+  <div class='single post' >
+  <div class="user">
+  <div class="avatar">
+    <% if post.user.avatar.attached? %>
+      <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
+    <% end %>
+  </div>
+  <div class="username">
+     <%= post.user.username %>
     </div>
-
-    <div id="avatar">
-      <% if post.user.avatar.attached? %>
-        <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
-      <% end %>
     </div>
-
-    <div id="post_image">
+    <div class="post_message">
+    <p><%= post.message %></p>
+    </div>
+    <div class="post_image">
       <% if post.image.attached? %>
         <img src="<%=(url_for(post.image))%>"
         width="400" 
@@ -20,16 +32,6 @@
         <%# portrait vs landscape?? %>
       <% end %>
     </div>
-
-    <div id="post_message">
-      <p><%= post.message %></p>
-    </div>
-    
+    </section>
   <% end %>
-
-  <div id="new_post_button">
-    <%= link_to new_post_path do %>
-      New post
-    <% end %>
-  </div>
 </div>
