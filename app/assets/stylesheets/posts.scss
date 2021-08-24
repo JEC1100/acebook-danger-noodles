@@ -1,0 +1,35 @@
+.posts{
+  margin: 50px 350px 10px;
+  .post{
+    margin: 50px 0;
+    border-radius: 3px;
+    .user{
+      border: 1px solid #efefef;
+      display: flex;
+      .avatar{
+        width: 60px;
+        margin: 10px;
+        img{
+          width: 100%;
+          border: 1px solid #efefef;
+          border-radius: 80%;
+        }
+      }
+      .username{
+        padding-top: 13px;
+        color: #262626;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+    .post_image{
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #efefef;
+    }
+    .post_message{
+      padding: 10px;
+      border: 1px solid #efefef;
+    }
+  }
+}
