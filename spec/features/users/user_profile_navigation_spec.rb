@@ -17,12 +17,7 @@ feature 'User navigation' do
     click_link 'Log Out'
 
     #another user signs up and clicks on user 1's avatar
-    visit "/users/sign_up"
-    fill_in "user_username", with: "Other account"
-    fill_in "user_email", with: "otheraccount@example.com"
-    fill_in "user_password", with: "password1!"
-    fill_in "user_password_confirmation", with: "password1!"
-    click_button 'Sign up'
+    user_sign_up
     visit '/posts'
     find('.user-avatar-link').click
     # it takes them to user 1's profile page
