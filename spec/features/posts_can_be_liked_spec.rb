@@ -1,7 +1,9 @@
 require 'rails_helper'
+require 'feature_test_helpers.rb'
 
 RSpec.feature "Liking posts", type: :feature do
   scenario "posts start off with 0 likes" do
+    user_sign_up
     visit "/posts/new"
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
@@ -9,6 +11,7 @@ RSpec.feature "Liking posts", type: :feature do
   end
 
   scenario "likes increase when like button is pressed" do
+    user_sign_up
     visit "/posts/new"
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
