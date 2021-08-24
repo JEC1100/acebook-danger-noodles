@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   const posts = document.querySelectorAll('.post');
   posts.forEach((post) => {
-    post.getElementsByName('commit').addEventListener('click', (e) => {
+    post.querySelector('.comment-button').addEventListener('click', (e) => {
       console.log('HI GUYS')
       commentBox = post.querySelector("#comment_content")
+      console.log(comment)
       token = likeButton.querySelector("input[name=authenticity_token").value; 
       e.preventDefault();
       fetch(`posts/${post.id}/comments`, {

@@ -13,10 +13,9 @@
   <p class='post-content'><%= post.message %></p>
   <div class='likes'>Likes: <%= post.likes.count %></div>
   <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: post.id, class:'like-button'%>
-  <%= button_to 'New Comment', post_comments_path(post.id), method: :post, id: post.id, name: :comment%>
-  <%= form_for :comment do |f| %>
+  <%= form_for ([post, Comment.new] ), html: { class: "comment-content" }, data: { posts_id: post.id } do |f| %>
   <%= f.text_area :content %><br />
-  <%= f.submit %>
+  <%= f.submit class:'comment-button' %>
 <% end %>   
   </div>
 
