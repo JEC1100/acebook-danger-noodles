@@ -1,5 +1,5 @@
 .posts{
-  margin: 50px 180px 10px;
+  margin: 50px 350px 10px;
   .post{
     border: 1px solid #efefef;
     margin: 60px 0;
@@ -24,7 +24,8 @@
       }
     }
     .post_image{
-      width: 100%;
+      max-width: 100%;
+      height: auto;
       border-bottom: 1px solid #f4f4f4;
     }
     .post_message{
