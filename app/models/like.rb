@@ -1,3 +1,4 @@
 class Like < ApplicationRecord
-  belongs_to :post
+  puts 'We are in like active record'
+  belongs_to :posts
 end
