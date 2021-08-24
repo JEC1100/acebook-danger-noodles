@@ -36,13 +36,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_135902) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_likes_on_post_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "message"
     t.datetime "created_at", null: false
@@ -65,6 +58,5 @@ ActiveRecord::Schema.define(version: 2021_08_23_135902) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "likes", "posts"
   add_foreign_key "posts", "users"
 end
