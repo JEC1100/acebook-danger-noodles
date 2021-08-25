@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const posts = document.querySelectorAll('.post');
   posts.forEach((post) => {
-    post.querySelector('.like-button').addEventListener('click', (event) => { 
-      event.preventDefault();
-      // testing = post.querySelector(".button_to")
-      token = post.querySelector("input[name=authenticity_token]").value;
+
+    post.querySelector('.like-button').addEventListener('click', (e) => {
+      likeButton = post.querySelector(".like-button")
+      token = likeButton.querySelector("input[name=authenticity_token").value; 
+      e.preventDefault();
+
       fetch(`posts/${post.id}/likes`, {
         method: 'POST',
         credentials: 'same-origin',
