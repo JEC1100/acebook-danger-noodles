@@ -13,24 +13,23 @@
   <body>
    <div class="navbar">
       <ul class="nav-list">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
+        <a href="<%= root_path %>">
+        <%= image_tag("logo.png") %>
+        </a>
         <% if user_signed_in?%>
 
         <li class="nav-item">
-          <%= link_to "Profile", edit_user_password_path, class: "nav-link" %>
+          <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Settings</a>
+         <li class="nav-item">
+          <%= link_to "Posts", posts_path, class: "nav-link" %>
         </li>
 
 
         <li class="nav-item">
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
-
 
         <% else %>
 
