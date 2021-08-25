@@ -4,9 +4,8 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     puts @post
     @comment = @post.comment.create(params[:comment].permit(:content, :user_id, :post_id))
-    puts 'The cake is a lie'
-    @comment.save
-    puts @comment.post_id
+    @comment.user_id = current_user.id
+    @comment.save!
     redirect_to posts_path
   end
 
