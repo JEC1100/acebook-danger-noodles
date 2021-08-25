@@ -1,0 +1,39 @@
+<div class="user-profile">
+  <div class="profile row">
+    <div class="col-md-3 profile-pic">
+      <div class="wrapper">
+          <% if current_user.avatar.attached? %>
+            <img src="<%= url_for(@user.avatar) %>"/>
+          <%end %>
+      </div>
+    </div>
+    <div class="col-md-6 basic-info">
+      <div class="user-wrapper">
+        <h2 class="username"><%= @user.username%></h2>
+         <% if current_page?(:controller => 'users', :action => 'show', :id => current_user.id) %>
+        <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
+          <button>Edit Profile</button>
+        </a>
+        <% end %>
+      </div>
+        <%= @user.bio %>
+    </div>
+  </div>
+</div>
+
+<div class="user-posts">
+ <% @posts.each do |post| %>
+  <div class='post' id='<%= post.id %>'>
+    <div class="post_message">
+      <p class='post-content'><%= post.message %></p>
+    </div>
+    <% post.images.each do |image| %>
+    <img src="<%=(url_for(image))%>" class="post_image"/>
+    <% end %>
+    <div class='likes'>Likes: <%= post.likes.count %></div>
+      <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: post.id, class:'btn btn-primary'%>
+      <br>
+  </div>
+  <% end %>
+</div>
+</div>

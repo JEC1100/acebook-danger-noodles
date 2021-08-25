@@ -1,31 +1,45 @@
-<div class="posts">
-  <div id="new_post_button">
-    <%= link_to new_post_path, class:"btn btn-primary" do %>
-      New post
-    <% end %>
-  </div>
-
+<div class='posts'>
+<%= link_to new_post_path, class:"btn btn-primary" do %>
+  New post
+<% end %>
   <% @posts.reverse_each do |post| %>
   <div class='post' id='<%= post.id %>'>
     <div class="user">
       <div class="avatar">
         <% if post.user.avatar.attached? %>
-          <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
+          <%= link_to user_path(post.user), class: 'user-avatar-link' do %> 
+            <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
+          <% end %>
         <% end %>
       </div>
       <div class="username">
-       <%= post.user.username %>
+        <%= link_to user_path(post.user) do %> 
+          <%= post.user.username %>
+        <% end %>
       </div>
     </div>
     <div class="post_message">
       <p class='post-content'><%= post.message %></p>
     </div>
-    <% post.images.each do |image| %>
+    <% post.images.each do|image| %>
     <img src="<%=(url_for(image))%>" class="post_image post-images"/>
     <% end %>
-    <div class='likes'>Likes: <%= post.likes.count %></div>
-      <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: post.id, class:'btn btn-primary'%>
-      <br>
-  </div>
+    <div>
+    <br>
+       <p><strong>Comments: </strong></p>
+    <% post.comment.each do |comment| %>
+      <p><%= comment.content.capitalize %></p> 
+    <% end %>
+    </div>
+    <%= form_for ([post, Comment.new] ), html: { class: "comment-content" } do |f| %>
+    <%= f.text_area :content %><br />
+    <%= f.submit class:'comment-button' %> 
+  <% end %>   
+    </div>
+    <div id="like-num<%=post.id%>" class='likes'>Likes: <%= post.likes.count %></div>
+    <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: "ID#{post.id}", class:'btn btn-primary like-button'%>
+    <br>
   <% end %>
 </div>
+
+
