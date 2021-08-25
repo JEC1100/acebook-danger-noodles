@@ -15,7 +15,7 @@
       <div class="form-group row">
         <%= f.label :profile_picture, class: 'col-sm-3 col-form-label' %>
         <div class="col-sm-9">
-          <%= f.file_field :avatar, class: 'form-control' %>
+          <%= f.file_field :avatar, accept: "image/jpeg, image/png, image/heic", class: 'form-control' %>
         </div>
       </div>
 
