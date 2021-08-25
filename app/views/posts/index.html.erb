@@ -16,7 +16,7 @@
   <div>
   <br>
      <p><strong>Comments: </strong></p>
-  <% post.comment.reverse_each do |comment| %>
+  <% post.comment.each do |comment| %>
     <p><%= comment.content.capitalize %></p> 
   <% end %>
   </div>
