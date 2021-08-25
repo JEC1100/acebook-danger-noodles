@@ -1,0 +1,84 @@
+.user-profile .profile-pic{
+  .wrapper{
+    width: 160px;
+    height: 160px;
+    margin: 40px auto;
+  }
+  .wrapper img{
+    width: 100%;
+    border-radius: 20%;
+    border: 5px solid #dbdbdb;
+  }
+}
+
+.profile .basic-info{
+  padding: 40px 0;
+  .user-wrapper{
+    display: flex;
+  }
+  .username{
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 200;
+  }
+  .edit-profile{
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+  .edit-profile button{
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    color: #262626;
+    font-size: 14px;
+    padding: 4px 10px;
+    font-weight: 500;
+  }
+
+}
+
+.user-posts{
+  margin: 50px 350px 10px;
+  .post{
+    margin: 50px 0;
+    border-radius: 3px;
+    .post_image{
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #efefef;
+    }
+    .post_message{
+      padding: 10px;
+      border: 1px solid #efefef;
+    }
+  }
+}
+
+
+.form-edit-user{
+  padding: 30px 100px 10px 50px;
+.form-group, input{
+    font-size: 14px;
+    color: black;
+  }
+  input, textarea{
+    border: 1px solid #efefef;
+  }
+  .col-form-label{
+    text-align: right;
+    font-weight: 600;
+  }
+.avatar{
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+  }
+  .username{
+    font-size: 30px;
+    line-height: 22px;
+    margin-bottom: 0;
+  }
+  input[type='submit']{
+    color: white;
+  }
+}

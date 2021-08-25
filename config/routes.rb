@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :likes
     resources :comments
   end
+
+  resources :users, only: [:show, :edit, :update]
 end
