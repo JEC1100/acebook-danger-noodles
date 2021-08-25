@@ -1,3 +1,6 @@
+<%= link_to new_post_path, class:"btn btn-primary" do %>
+  New post
+<% end %>
   <% @posts.reverse_each do |post| %>
   <div class='post' id='<%= post.id %>'>
     <div class="user">
