@@ -17,10 +17,13 @@
       }
       .username{
         padding-top: 13px;
-        color: #262626;
         font-size: 14px;
         font-weight: 600;
+        .username-link{
+          color: #262626;
+        }
       }
+      
     }
     .post_image{
       max-width: 100%;
@@ -37,3 +40,4 @@
     }
   }
 }
+
