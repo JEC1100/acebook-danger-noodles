@@ -1,6 +1,10 @@
 {
   "name": "acebook",
   "private": true,
+  "engines": {
+    "node": "16.x",
+    "yarn": "1.x"
+  },
   "dependencies": {
     "bootstrap": "^5.1.0",
     "jquery": "^3.6.0",
