@@ -29,9 +29,9 @@
     <div id="like-num<%=post.id%>" class='likes'>Likes: <%= post.likes.count %></div>
     <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
 <% if pre_like %>
-  <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete, id: "ID#{post.id}", class:'btn btn-primary' %>
+  <%= button_to 'Unlike', post_like_path(post, pre_like), id: "#{pre_like.id}", class:"btn btn-primary unlike-button" %>
 <% else %>
- <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: "ID#{post.id}", class:'btn btn-primary like-button'%> 
+ <%= button_to 'Like', post_likes_path(post.id),id: "like-button#{post.id}", class:"btn btn-primary like-button"%> 
 <% end %>
     <%
 =begin%>
