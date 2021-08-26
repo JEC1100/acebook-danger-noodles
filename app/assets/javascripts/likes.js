@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     post.querySelector('.like-button').addEventListener('click', (e) => {
       likeButton = post.querySelector(".like-button")
-      token = likeButton.querySelector("input[name=authenticity_token").value; 
+      token = likeButton.querySelector("input[name=authenticity_token]").value; 
       e.preventDefault();
 
       fetch(`posts/${post.id}/likes`, {
