@@ -1,13 +1,9 @@
 require 'rails_helper'
+require 'feature_test_helpers'
 
 RSpec.feature "Timeline", type: :feature do
   scenario "Can submit posts and view them" do
-    visit "/users/sign_up"
-    fill_in "user_username", with: "Bob"
-    fill_in "user_email", with: "bob@example.com"
-    fill_in "user_password", with: "password1!"
-    fill_in "user_password_confirmation", with: "password1!"
-    click_button "Sign up"
+    user_sign_up
     visit "/posts"
     click_link "New post"
     fill_in "Message", with: "Hello, world!"
@@ -16,6 +12,7 @@ RSpec.feature "Timeline", type: :feature do
   end
 
   scenario "Can submit posts and with images view them" do
+    user_sign_up
     visit "/posts"
     click_link "New post"
     fill_in "post[message]", with: "Hello, world!"
@@ -26,6 +23,7 @@ RSpec.feature "Timeline", type: :feature do
   end
 
   scenario "Can submit posts and with multiple images" do
+    user_sign_up
     visit "/posts"
     click_link "New post"
     fill_in "post[message]", with: "Hello, world!"
@@ -36,9 +34,11 @@ RSpec.feature "Timeline", type: :feature do
   end
 
   scenario "Gives error message if post empty" do
+    user_sign_up
     visit "/posts"
     click_link "New post"
     click_button "Submit"
+    expect(current_path).to eq("/posts/new")
     expect(page).to have_content("Cannot create an empty post.")
   end
 end
