@@ -26,11 +26,14 @@
       }
     }
     .post_image{
+      margin: 1rem;
       max-width: 100%;
       max-height: auto;
-      border: 1px solid #efefef;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      
     }
     .post_message{
+      margin: 1rem;
       padding: 10px;
       border: 1px solid #efefef;
     }
@@ -42,9 +45,10 @@
       outline: none;
       resize: none;
     }
+    
     .likes{
-      padding: 10px;
-      border: 1px solid #efefef;
+      padding: 2rem;
+      margin: 2rem;
     }
   }
 }

@@ -36,8 +36,9 @@
     <%= f.submit class:'comment-button btn btn-primary' %> 
   <% end %>   
     </div>
-    <div id="like-num<%=post.id%>" class='likes'>Likes: <%= post.likes.count %></div>
+    <div id="like-num<%=post.id%>" class='likes'>Likes: <%= post.likes.count %>
     <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: "ID#{post.id}", class:'btn btn-primary like-button'%>
+    </div>
     <br>
   <% end %>
 </div>

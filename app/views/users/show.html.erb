@@ -30,8 +30,9 @@
     <% post.images.each do |image| %>
     <img src="<%=(url_for(image))%>" class="post_image"/>
     <% end %>
-    <div class='likes'>Likes: <%= post.likes.count %></div>
+    <div class="likes">Likes: <%= post.likes.count %>
       <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: post.id, class:'btn btn-primary'%>
+      </div>
       <br>
   </div>
   <% end %>
