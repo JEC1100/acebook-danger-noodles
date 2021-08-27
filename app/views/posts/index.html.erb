@@ -24,7 +24,7 @@
     <% post.images.each do|image| %>
     <img src="<%=(url_for(image))%>" class="post_image post-images"/>
     <% end %>
-    <div>
+    <div id="comment<%="#{post.id}"%>">
     <br>
        <p><strong>Comments: </strong></p>
     <% post.comment.each do |comment| %>
@@ -33,7 +33,7 @@
     </div>
     <%= form_for ([post, Comment.new] ), html: { class: "comment-content" } do |f| %>
     <%= f.text_area :content %><br />
-    <%= f.submit class:'comment-button' %> 
+    <%= f.submit placeholder:'Comment...', class:'comment-button' %> 
   <% end %>   
     </div>
     <div id="like-num<%=post.id%>" class='likes'>Likes: <%= post.likes.count %></div>
