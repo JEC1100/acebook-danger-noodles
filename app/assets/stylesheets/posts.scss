@@ -3,6 +3,8 @@
   .post{
     margin: 50px 0;
     border-radius: 3px;
+    border: 1px solid #efefef;
+
     .user{
       border: 1px solid #efefef;
       display: flex;
@@ -17,22 +19,26 @@
       }
       .username{
         padding-top: 13px;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
         .username-link{
           color: #262626;
+          text-decoration: none;
         }
       }
       
     }
     .post_image{
       max-width: 100%;
-      height: auto;
+      max-height: auto;
       border: 1px solid #efefef;
     }
     .post_message{
       padding: 10px;
       border: 1px solid #efefef;
+      .post-content {
+        font-size: 14px;
+      }
     }
     .likes{
       padding: 10px;
