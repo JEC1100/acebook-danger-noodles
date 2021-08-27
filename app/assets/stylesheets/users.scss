@@ -11,7 +11,6 @@
   }
 }
 
-
 .profile .basic-info{
   padding: 40px 0;
   .user-wrapper{
@@ -36,21 +35,30 @@
     font-weight: 500;
   }
 
+  .edit-profile button:hover {
+    background-color: #3b5c98;
+    color: #fff;
+  }
 }
 
 .user-posts{
   margin: 50px 350px 10px;
   .post{
     margin: 50px 0;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     .post_image{
       max-width: 100%;
       height: auto;
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
     .post_message{
       padding: 10px;
       border: 1px solid #efefef;
+      padding: 2rem;
     }
     .likes {
       padding: 2rem;
@@ -58,7 +66,6 @@
     }
   }
 }
-
 
 .form-edit-user{
   padding: 30px 100px 10px 50px;
