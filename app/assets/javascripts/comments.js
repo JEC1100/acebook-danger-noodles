@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   const posts = document.querySelectorAll('.post');
 
-  function insertAfter(referenceNode, newNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-  }
   posts.forEach((post) => {
     post.querySelector('.comment-button').addEventListener('click', (e) => {
     let commentBox = post.querySelector(".comment-content")
