@@ -1,4 +1,4 @@
-<div class='posts'>
+<div class='posts container'>
 <%= link_to new_post_path, class:"btn btn-primary" do %>
   New post
 <% end %>
@@ -13,7 +13,7 @@
         <% end %>
       </div>
       <div class="username">
-        <%= link_to user_path(post.user) do %> 
+        <%= link_to user_path(post.user), class: 'username-link' do %> 
           <%= post.user.username %>
         <% end %>
       </div>
@@ -44,12 +44,10 @@
     <% end %>
     </div>
     <%= form_for ([post, Comment.new] ), html: { class: "comment-content" } do |f| %>
-    <%= f.text_area :content, placeholder:'New Comment...' %><br />
-    <%= f.submit class:'comment-button' %> 
+
+    <%= f.text_area cols:"100", rows:"7", :content, placeholder:'New Comment...' %><br />
+    <%= f.submit class:'comment-button btn btn-primary' %> 
   <% end %>   
     </div>
-
   <% end %>
 </div>
-
-

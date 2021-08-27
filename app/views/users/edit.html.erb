@@ -1,4 +1,4 @@
-<div class="user-edit-page">
+<div class="user-edit-page container">
 
   <div class="details tab-content">
     <%= form_with model: current_user, local: true, html: {class: "form-horizontal form-edit-user"} do |f| %>
@@ -11,6 +11,7 @@
         <div class="col-sm-9">
           <p class="username"><%=current_user.username %></p>
         </div>
+        <br><br>
    
       <div class="form-group row">
         <%= f.label :profile_picture, class: 'col-sm-3 col-form-label' %>
@@ -18,18 +19,19 @@
           <%= f.file_field :avatar, accept: "image/jpeg, image/png, image/heic", class: 'form-control' %>
         </div>
       </div>
-
+      <br><br>
       <div class="form-group row">
         <%= f.label :username, class: 'col-sm-3 col-form-label' %>
         <div class="col-sm-9">
            <%= f.text_field :username, class: 'form-control' %>
         </div>
       </div>
+      <br><br>
       
       <div class="form-group row">
         <%= f.label :bio, class: 'col-sm-3 col-form-label' %>
         <div class="col-sm-9">
-          <%= f.text_area :bio, class: 'form-control' %>
+          <%= f.text_area :bio, class: 'form-control', cols:"20", rows:"12" %>
         </div>
       </div>
 
@@ -39,10 +41,11 @@
           <%= f.text_field :email, class: 'form-control' %>
         </div>
       </div>
-
+      <br><br>
       <div class="form-group row">
         <div class="col-sm-3">
       </div>
+      <br><br>
       <div class="col-sm-9">
         <%= f.submit "Submit", class: 'btn btn-primary' %>
      </div>

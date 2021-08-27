@@ -1,4 +1,4 @@
-<div class="user-profile">
+<div class="user-profile container">
   <div class="profile row">
     <div class="col-md-3 profile-pic">
       <div class="wrapper">
@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-6 basic-info">
       <div class="user-wrapper">
-        <h2 class="username"><%= @user.username%></h2>
+        <h1 class="username"><%= @user.username%></h1>
          <% if current_page?(:controller => 'users', :action => 'show', :id => current_user.id) %>
         <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
           <button>Edit Profile</button>
@@ -30,8 +30,9 @@
     <% post.images.each do |image| %>
     <img src="<%=(url_for(image))%>" class="post_image"/>
     <% end %>
-    <div class='likes'>Likes: <%= post.likes.count %></div>
+    <div class="likes">Likes: <%= post.likes.count %>
       <%= button_to 'Like', post_likes_path(post.id), method: :post ,id: post.id, class:'btn btn-primary'%>
+      </div>
       <br>
   </div>
   <% end %>
