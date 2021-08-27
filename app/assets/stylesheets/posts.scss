@@ -17,19 +17,30 @@
       }
       .username{
         padding-top: 13px;
-        color: #262626;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
+      }
+      .username-link{
+        color: #262626;
+        text-decoration: none;
       }
     }
     .post_image{
       max-width: 100%;
-      height: auto;
+      max-height: auto;
       border: 1px solid #efefef;
     }
     .post_message{
       padding: 10px;
       border: 1px solid #efefef;
+    }
+    .post-content {
+      font-size: 14px;
+    }
+
+    textarea {
+      outline: none;
+      resize: none;
     }
     .likes{
       padding: 10px;
