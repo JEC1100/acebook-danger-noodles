@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
       unlikingStuff(post)
     }
   });
-}
+  }
 loadComments();
 
   function likingStuff(post) {
