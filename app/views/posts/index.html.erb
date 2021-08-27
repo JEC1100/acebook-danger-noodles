@@ -6,33 +6,33 @@
   </div>
 
   <% @posts.reverse_each do |post| %>
-  <div class='post' id='<%= post.id %>'>
-    <div class="user">
-      <div class="avatar">
-        <% if post.user.avatar.attached? %>
-          <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
-        <% end %>
+    <div class='post' id='<%= post.id %>'>
+      <div class="user">
+        <div class="avatar">
+          <% if post.user.avatar.attached? %>
+            <img class="img-thumbnail rounded-circle" src="<%=(url_for(post.user.avatar))%>" />
+          <% end %>
+        </div>
+        <div class="username">
+          <%= post.user.username %>
+        </div>
       </div>
-      <div class="username">
-        <%= post.user.username %>
+      <div class="post_message">
+        <p class='post-content'><%= post.message %></p>
       </div>
-    </div>
-    <div class="post_message">
-      <p class='post-content'><%= post.message %></p>
-    </div>
-    <% post.images.each do |image| %>
-      <img src="<%=(url_for(image))%>" class="post_image post-images"/>
+      <% post.images.each do |image| %>
+        <img src="<%=(url_for(image))%>" class="post_image post-images"/>
+      <% end %>
+      <div id="like-num<%=post.id%>" class='likes'>
+        Likes: <%= post.likes.count %>
+      </div>
+      <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like %>
+      <%= button_to 'Unlike', post_like_path(post, pre_like), id: "#{pre_like.id}", class:"btn btn-primary unlike-button" %>
+    <% else %>
+      <%= button_to 'Like', post_likes_path(post.id),id: "like-button#{post.id}", class:"btn btn-primary like-button"%> 
     <% end %>
-    <div id="like-num<%=post.id%>" class='likes'>
-      Likes: <%= post.likes.count %>
+      <br>
     </div>
-    <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
-  <% if pre_like %>
-    <%= button_to 'Unlike', post_like_path(post, pre_like), id: "#{pre_like.id}", class:"btn btn-primary unlike-button" %>
-  <% else %>
-    <%= button_to 'Like', post_likes_path(post.id),id: "like-button#{post.id}", class:"btn btn-primary like-button"%> 
-  <% end %>
-    <br>
-  </div>
   <% end %>
 </div>
