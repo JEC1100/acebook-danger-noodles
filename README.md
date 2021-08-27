@@ -1,42 +1,81 @@
 # AceBook
 
-REQUIRED INSTRUCTIONS:
+On Heroku: [Acebook](https://nameless-escarpment-65979.herokuapp.com/)
 
-1. Fork this repository to `acebook-teamname` and customize
-the below**
+## About Acebook
 
-[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
+This application was developed by a team of 10 developers (see below) in weeks 8 and 9 of Makers Academy Software Development Bootcamp. As an introduction to Ruby on Rails the task was to build a light clone of Facebook. Functionality implemented includes:
 
-2. The card wall is here: <please update>
+- Signing up, logging in and out
+  - Created with devise gem
+- Newsfeed
+  - Users can create posts and they will appear on the newsfeed in reverse chronological order
+    - Posts can contain images and a message
+  - Posts have a user's avatar and username with it
+  - Infinite scrolling (implemented using REACT)
+- Likes and comments
+  - A user can like a post once, once liked button changes to 'unlike' and user can unlike it (and so on...)
+  - Users can leave comments under posts
+  - Javascript fetch requests implemented in order to stop page refresh upon liking/unliking and commenting
+- User profile
+  - Contains all of the user's posts (complete with likes and comments)
+  - Edit profile option on current user's page
+    - User can update their username, avatar, bio and email
+- Navigation
+  - Nav bar for user to visit the home page, their profile, and to sign in and out
+  - Clicking on a user's avatar or username by their post takes you to their profile
+- Testing
+  - Unit testing using Rspec and Factory Bot
+  - Feature testing using capybara
+- Development
+  - App deployed to heroku
+  - Images hosted on Amazon S3
 
-## How to contribute to this project
-See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## Quickstart
+## Collaborators
 
-First, clone this repository. Then:
+- [Pav Rao](https://github.com/pav0107)
+- [Matt Firmston](https://github.com/YoFirmy)
+- [Brett Karlson](https://github.com/BrettKarlson)
+- [Sibel Eren](https://github.com/senoodle)
+- [Karim Abu-Seer](https://github.com/karimabuseer)
+- [Else Meijerink](https://github.com/SipofTea)
+- [James Condon](https://github.com/JEC1100)
+- [Luke Usher](https://github.com/lushcodes)
+- [Will Young](https://github.com/William-Young-97)
+- [Izzy Peppiatt](https://github.com/isobelpepp)
 
-```bash
-> bundle install
-> bin/rails db:create
-> bin/rails db:migrate
+## Team practices:
 
-> bundle exec rspec # Run the tests to ensure it works
-> bin/rails server # Start the server at localhost:3000
+- Stand up and retro every day
+- Trello board assigning tickets
+- Pair and mob programming
+- Code reviews
+
+### Setting up the project on your local machine:
+
+- Clone this repository and cd into it
+- Run:
+
+```
+bundle install
 ```
 
-## Troubleshooting
+- If yarn is not installed on your machine you will need to run:
 
-If you don't have Node.js installed yet, you might run into this error when running rspec:
+``` 
+npm yarn install
 ```
-ExecJS::RuntimeUnavailable:
-  Could not find a JavaScript runtime. See https://github.com/rails/execjs for a list of available runtimes.
- ```
-That is because Rails will use a Javascript runtime (such as Node) under the hood. The easiest way is to install Node by running `brew install node` - 
-and then run `bundle exec rspec` again
 
-## Setup Bootstrap
+- To migrate the databases:
+
 ```
-- npm install yarn
-- yarn add bootstrap jquery popper.js
+rails db:create
+rails db:migrate
+```
+
+- To load the application (and visit on localhost:3000):
+
+``` 
+rails s
 ```
