@@ -2,7 +2,7 @@
   <div class="profile row">
     <div class="col-md-3 profile-pic">
       <div class="wrapper">
-          <% if current_user.avatar.attached? %>
+          <% if @user.avatar.attached? %>
             <img src="<%= url_for(@user.avatar) %>"/>
           <%end %>
       </div>
