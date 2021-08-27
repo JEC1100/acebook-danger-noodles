@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   }
-loadComments();
+  loadComments();
 
   function likingStuff(post) {
     let likeButton = post.querySelector(`.like-button`)
