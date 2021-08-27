@@ -32,8 +32,8 @@
     <% end %>
     </div>
     <%= form_for ([post, Comment.new] ), html: { class: "comment-content" } do |f| %>
-    <%= f.text_area :content %><br />
-    <%= f.submit placeholder:'Comment...', class:'comment-button' %> 
+    <%= f.text_area :content, placeholder:'New Comment...' %><br />
+    <%= f.submit class:'comment-button' %> 
   <% end %>   
     </div>
     <div id="like-num<%=post.id%>" class='likes'>Likes: <%= post.likes.count %></div>
